@@ -18,7 +18,7 @@ public class FriendController {
 	private List<Friend> friendList = new ArrayList<Friend>();
 
 	// Default method is GET so perhaps we could skip it.
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String index(@RequestParam(name = "friend", required = false) String name, Model model) {
 		friendList = new ArrayList<Friend>();
 		model.addAttribute("friend", new Friend()); 
@@ -29,7 +29,6 @@ public class FriendController {
 	public String index(@ModelAttribute(name = "friend") Friend friend, Model model) {
 		friendList.add(friend);
 		model.addAttribute("friendList", friendList);
-
 		return "index";
 	}
 }
