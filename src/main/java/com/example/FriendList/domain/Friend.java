@@ -1,36 +1,41 @@
+
 package com.example.FriendList.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Friend {
 
-	private String name;
-	//private String lastName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    private String name;
 
-//	public Friend(String name, String lastName) {
-//		super();
-//		this.name = name;
-//		this.lastName = lastName;
-//	}
+    public Friend() {
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	@Override
-	public String toString() {
-		return "Friend [name=" + name + "]";
-	}
+    public String getName() {
+        return name;
+    }
 
-//	public String getLastname() {
-//		return lastName;
-//	}
-//
-//	public void setLastname(String lastname) {
-//		this.lastName = lastname;
-//	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    @Override
+    public String toString() {
+        return "Friend [id=" + id + ", name=" + name + "]";
+    }
 }
